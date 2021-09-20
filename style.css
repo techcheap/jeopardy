@@ -1,0 +1,45 @@
+body{
+    background-image: url(assets/img/background.jpg);
+}
+#logo{
+    width: 75%;
+    margin-top: 5%;
+}
+.buttons{
+    transition: all .2s ease-in-out;
+    color: #fff;
+    font-family: sans-serif;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 4em;
+}
+
+.highlighted{
+    background-image: linear-gradient(to right, #2461f7, #fe99bb);
+    border-radius: 6px;
+}
+.highlighted1{
+    background-image: linear-gradient(to right, #2461f7, #17a0ee, #b5effa);
+    border-radius: 6px;
+    margin-right: 5%;
+}
+.highlighted2{
+    background-image: linear-gradient(to right, #fff2e9, #fed1cb, #fe99bb);
+    border-radius: 6px;
+    margin-left : 5%;
+}
+h1{
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+}
+.host{
+    transition: all .2s ease-in-out;
+}
+.host:hover{
+    transform: scale(1.1);
+}
+.buttons:hover{
+    transform: scale(1.1);
+}

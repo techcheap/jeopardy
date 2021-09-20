@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <title>Jeopardy ! - Deputy Teacher</title>
+    </head>
+    <body>
+        <center><table class="header">
+            <tr>
+                <th id="boys">Boys: 0pts</th>
+                <th id="girls">Girls: 0pts</th>
+            </tr>
+        </table>
+        <table class="questions">
+            <tr>
+                <td>Category1</td>
+                <td>Category2</td>
+            </tr>
+            <tr>
+                <td id="100-1" onClick="reply_click(this.id)" class="button">100pts</td>
+                <td id="100-2" onClick="reply_click(this.id)" class="button">100pts</td>
+            </tr>
+            <tr>
+                <td id="200-1" onClick="reply_click(this.id)" class="button">200pts</td>
+                <td id="200-2" onClick="reply_click(this.id)" class="button">200pts</td>
+            </tr>
+            <tr>
+                <td id="300-1" onClick="reply_click(this.id)" class="button">300pts</td>
+                <td id="300-2" onClick="reply_click(this.id)" class="button">300pts</td>
+
+            </tr>
+            <tr>
+
+                <td id="400-1" onClick="reply_click(this.id)" class="button">400pts</td>
+                <td id="400-2" onClick="reply_click(this.id)" class="button">400pts</td>
+
+            </tr>
+            <tr>
+
+                <td id="500-1" onClick="reply_click(this.id)" class="button">500pts</td>
+                <td id="500-2" onClick="reply_click(this.id)" class="button">500pts</td>
+
+            </tr>
+        </table></center>
+
+
+        <!-- Overlay -->
+        <div class="bg-question">
+            <div class="question">
+                <div class="close">+</div>
+                <!-- Timer -->
+                <video class="timer" muted>
+                    <source src="../assets/video/bar.mp4" type="video/mp4">
+                </video>
+                <!-- Questions -->
+                <h1 id="question" class="question-input"></h1>
+                <h1 id="winner" class="question-input"></h1>
+                <table class="host-buttons">
+                    <tr>
+                        <td id="correct" class="buttons">
+                            Correct !
+                    </tr>
+                    <!--<tr>
+                        <td id="rebuzz" class="buttons">
+                            Rebuzz
+                        </td>
+                    </tr>-->
+                </table>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

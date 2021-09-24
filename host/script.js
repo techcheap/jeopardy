@@ -20,7 +20,7 @@ var scoreGirls = 0;
 var addScore=0;
 var winner_gender = null;
 var question ="none";
-var question_time;
+var timing;
 //Trigger and close a question
 let timer = document.querySelector('.timer')
 document.querySelectorAll('.button').forEach(item => item.addEventListener("click", function() {

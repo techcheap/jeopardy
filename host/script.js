@@ -11,6 +11,18 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 var firebaseRef = firebase.database();
 
+document.querySelector(".submit").addEventListener("click", function(){
+    var password = document.getElementById('password').value;
+    if (password == "omar&&jeopardy2021deputy**"){
+      document.querySelector('.bg_password').style.display="none";
+      document.querySelector(".corps").style.display="block";
+    }
+    else{
+      document.querySelector(".corps").style.display="none";
+      document.querySelector('.bg_password').style.display="block";
+      alert("Incorrect password!");
+    };
+});
 const deBuzz = {
     gender:"none",
     isBuzzed: false

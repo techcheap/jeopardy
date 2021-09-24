@@ -20,38 +20,35 @@ var scoreGirls = 0;
 var addScore=0;
 var winner_gender = null;
 var question ="none";
-var counting =false;
+var question_time;
 //Trigger and close a question
 let timer = document.querySelector('.timer')
 document.querySelectorAll('.button').forEach(item => item.addEventListener("click", function() {
     document.querySelector('.bg-question').style.display = "block";
     document.getElementById("winner").innerHTML="";
     timer.play();
-    endTime;
-    counting=true;
+    clearTimeout(timing);
+    timing = setTimeout(endTime,10000);
     firebaseRef.ref("onQuestion").set(true);
     firebaseRef.ref("buzz").update(deBuzz);
     document.querySelector(".host-buttons").style.display="none";
 }));
 function endTime(){
-  if (counting){
-    setTimeout(firebaseRef.ref("timerExpired").set(true),10);
-  }
-};
+  firebaseRef.ref("timerExpired").set(true);
+}
 function rebuzz(){
-    setTimeout(function(){
-      document.getElementById("winner").innerHTML="";
-      counting = true;
-      endTime;
-      timer.play();
-      timer.currentTime=0;
-      firebaseRef.ref("onQuestion").set(true);
-      firebaseRef.ref("buzz").update(deBuzz);
-      document.querySelector(".host-buttons").style.display="none";
-    } ,10000);
+    document.getElementById("winner").innerHTML="";
+    clearTimeout(timing);
+    timing = setTimeout(endTime,10000);
+    timer.play();
+    timer.currentTime=0;
+    firebaseRef.ref("onQuestion").set(true);
+    firebaseRef.ref("buzz").update(deBuzz);
+    document.querySelector(".host-buttons").style.display="none";
 };
 document.querySelector('.close').addEventListener("click", function(){
     document.querySelector('.bg-question').style.display = "none";
+    clearTimeout(timing);
     timer.pause();
     timer.currentTime=0;
     firebaseRef.ref("buzz/isBuzzed").set(false);
@@ -64,8 +61,8 @@ firebaseRef.ref("buzz").on("value", snapshot =>{
     var snap = snapshot.val();
     var isBuzzed = snap.isBuzzed;
     if (isBuzzed == true){
-      rebuzz;
-      counting = false;
+      clearTimeout(timing);
+      timing = setTimeout(rebuzz,10000);
       document.getElementById("winner").innerHTML=snap.name + " buzzed!";
       timer.currentTime=0;
       document.querySelector(".host-buttons").style.display="block";

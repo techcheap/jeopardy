@@ -64,6 +64,7 @@ firebaseRef.ref("buzz").on("value", snapshot =>{
       clearTimeout(timing);
       timing = setTimeout(rebuzz,13000);
       document.getElementById("winner").innerHTML=snap.name + " buzzed!";
+      timer.play();
       timer.currentTime=0;
       document.querySelector(".host-buttons").style.display="block";
     }

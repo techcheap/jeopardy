@@ -21,6 +21,7 @@ var addScore=0;
 var winner_gender = null;
 var question ="none";
 var timing;
+var question_point = 0;
 //Trigger and close a question
 let timer = document.querySelector('.timer')
 document.querySelectorAll('.button').forEach(item => item.addEventListener("click", function() {
@@ -55,12 +56,44 @@ document.querySelector('.close').addEventListener("click", function(){
     firebaseRef.ref("onQuestion").set(false);
     firebaseRef.ref("timerExpired").set(false);
     document.getElementById(question).className="clicked";
+    question_point = question_point + 1;
+    if (question_point == 10){
+        if (scoreBoys > scoreGirls){
+            document.querySelector('.question_input').style.color="#42b4e6";
+            document.getElementById('celeb_msg').innerHTML = "BOYS WIN!";
+            document.getElementById('points').innerHTML = scoreBoys + "pts";
+        }
+        else if (scoreGirls>scoreBoys){
+            document.querySelector('.question_input').style.color="pink";
+            document.getElementById('celeb_msg').innerHTML = "GIRLS WIN!";
+            document.getElementById('points').innerHTML = scoreGirls + "pts";
+        }
+        else if (scoreBoys==scoreGirls){
+          document.querySelector('.question_input').style.color="#fec103";
+            document.getElementById('celeb_msg').innerHTML = "IT\'S A TIE!";
+            document.getElementById('points').innerHTML = scoreBoys + "pts";
+        }
+      document.querySelector(".bg_celeb").style.display="block";
+    }
+    else{
+      document.querySelector(".bg_celeb").style.display="none";
+    }
+});
+
+document.querySelector('.close_celeb').addEventListener("click", function(){
+    document.querySelector('.bg_celeb').style.display="none";
 });
 
 firebaseRef.ref("buzz").on("value", snapshot =>{
     var snap = snapshot.val();
     var isBuzzed = snap.isBuzzed;
     if (isBuzzed == true){
+      if (snap.gender == "boys"){
+        document.getElementById("winner").style.color="#42b4e6";
+      }
+      else if (snap.gender == "girls"){
+        document.getElementById("winner").style.color="pink";
+      }
       clearTimeout(timing);
       timing = setTimeout(rebuzz,13000);
       document.getElementById("winner").innerHTML=snap.name + " buzzed!";

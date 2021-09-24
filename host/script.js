@@ -28,7 +28,7 @@ document.querySelectorAll('.button').forEach(item => item.addEventListener("clic
     document.getElementById("winner").innerHTML="";
     timer.play();
     clearTimeout(timing);
-    timing = setTimeout(endTime,10000);
+    timing = setTimeout(endTime,13000);
     firebaseRef.ref("onQuestion").set(true);
     firebaseRef.ref("buzz").update(deBuzz);
     document.querySelector(".host-buttons").style.display="none";
@@ -39,7 +39,7 @@ function endTime(){
 function rebuzz(){
     document.getElementById("winner").innerHTML="";
     clearTimeout(timing);
-    timing = setTimeout(endTime,10000);
+    timing = setTimeout(endTime,13000);
     timer.play();
     timer.currentTime=0;
     firebaseRef.ref("onQuestion").set(true);
@@ -62,7 +62,7 @@ firebaseRef.ref("buzz").on("value", snapshot =>{
     var isBuzzed = snap.isBuzzed;
     if (isBuzzed == true){
       clearTimeout(timing);
-      timing = setTimeout(rebuzz,10000);
+      timing = setTimeout(rebuzz,13000);
       document.getElementById("winner").innerHTML=snap.name + " buzzed!";
       timer.currentTime=0;
       document.querySelector(".host-buttons").style.display="block";

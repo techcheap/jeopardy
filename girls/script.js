@@ -52,9 +52,10 @@ firebaseRef.ref().on("value", snapshot =>{
         };
     }
     else if(snap.onQuestion != true){
-    var question = "Waiting for a question...";
-    document.querySelector('.text').innerHTML=question;
-    document.querySelector('.winner').style.display="block";
+        document.querySelector('.text').style.color="#fec103";
+        var question = "Waiting for a question...";
+        document.querySelector('.text').innerHTML=question;
+        document.querySelector('.winner').style.display="block";
     };
 });
 

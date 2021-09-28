@@ -40,6 +40,12 @@ firebaseRef.ref().on("value", snapshot =>{
             });
         }
         else if(isBuzzed == true){
+            if (buzzingGender == "boys"){
+                document.querySelector('.text').style.color="#42b4e6";
+            }
+            else if (buzzingGender == "girls"){
+                document.querySelector('.text').style.color="pink";
+            }; 
             var win = buzzingName + " buzzed!"
             document.querySelector('.text').innerHTML=win;
             document.querySelector('.winner').style.display="block";

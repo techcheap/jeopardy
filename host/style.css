@@ -188,7 +188,7 @@ a {
     left:0;
     justify-content:center;
     align-items: center;
-    display:none;
+    display:block;
 }
 .password{
     background-image: url(../assets/img/background.jpg);

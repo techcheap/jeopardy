@@ -185,12 +185,13 @@ firebaseRef.ref("buzz/gender").on("value", snapshot =>{
 });
 
 document.getElementById("correct").addEventListener("click", function(){
-  counting = false;
+  clearTimeout(timing);
   if (winner_gender == true){
     scoreBoys = scoreBoys + addScore;
   }else if (winner_gender == false){
     scoreGirls = scoreGirls + addScore;
-  }
+  };
+
   timer.pause();
   document.querySelector(".host-buttons").style.display="none";
   var scoreboys = "Boys: " + scoreBoys + "pts";

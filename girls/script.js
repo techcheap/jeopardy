@@ -16,13 +16,20 @@ var  buzzer = {
     isBuzzed: true,
     name: myName
 };
+document.querySelector(".change_name").addEventListener('click', function(){
+    document.querySelector('.background').style.display="block";
+});
 document.querySelector(".submit").addEventListener('click', function(){
     myName = document.getElementById('name').value;
-    document.querySelector('.background').style.display="none";
-    buzzer = {
-        gender : "girls",
-        isBuzzed: true,
-        name: myName
+    if (myName == "Choose your name"){
+        alert("Choose a name");
+    }else if (myName != "Choose your name"){
+        document.querySelector('.background').style.display="none";
+        buzzer = {
+            gender : "girls",
+            isBuzzed: true,
+            name: myName
+        };
     };
 });
 firebaseRef.ref().on("value", snapshot =>{

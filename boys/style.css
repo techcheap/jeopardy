@@ -34,6 +34,21 @@ h1{
         padding-bottom: 50%;
         width:100%;
     }
+    .change_name{
+        background: rgba(0, 0, 0, 0.7);
+        position:relative;
+        width: fit-content;
+        padding:5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        transform: translate(0,0%);
+        text-align: center;
+        align-items: center;
+        border-radius: 20px;
+    }
+    .change_name:hover{
+        cursor: pointer;
+    }
 }
 
 .background{
@@ -61,7 +76,6 @@ h1{
 }
 #name{
     background-color: rgba(0,0,0,0.0);
-    font-size: 5em;
     font-family: sans-serif;
     width: 75%;
     border-top: none;
@@ -137,4 +151,23 @@ h2{
     left:50%;
     transform: translate(-50%,-50%);
     padding: 20px;
+}
+#name{
+    font-size: 2em;
+}
+
+.change_name{
+    background: rgba(0, 0, 0, 0.7);
+    position:relative;
+    width: fit-content;
+    padding:5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    transform: translate(0,0%);
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.change_name:hover{
+    cursor: pointer;
 }

@@ -2,9 +2,10 @@ body{
     background-image: url(../assets/img/background.jpg);
 }
 .corps{
-    display: none;
+    display: block;
 }
 tr,td,th{
+    padding:0;
     border: 2px solid #01000e;
     border-radius: 5px ;
     background-color: #409dc5;
@@ -27,6 +28,7 @@ th{
     height:14%;
 }
 td{
+    padding:0px;
     width:16.67%;
 }
 .button, .buttons{
@@ -186,7 +188,7 @@ a {
     left:0;
     justify-content:center;
     align-items: center;
-    display:block;
+    display:none;
 }
 .password{
     background-image: url(../assets/img/background.jpg);

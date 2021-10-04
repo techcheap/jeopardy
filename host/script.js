@@ -69,7 +69,7 @@ document.querySelector('.close').addEventListener("click", function(){
     firebaseRef.ref("timerExpired").set(false);
     document.getElementById(question).className="clicked";
     question_point = question_point + 1;
-    if (question_point == 10){
+    if (question_point == 15){
         if (scoreBoys > scoreGirls){
             document.querySelector('.question_input').style.color="#42b4e6";
             document.getElementById('celeb_msg').innerHTML = "BOYS WIN!";
@@ -129,11 +129,17 @@ function reply_click(clicked_id)
       case '100-2':
         myQuestion = snap.second1.toString();
         break;
+      case '100-3':
+        myQuestion = snap.third1.toString();
+        break;
       case '200-1':
         myQuestion = snap.first2.toString();
         break;
       case '200-2':
         myQuestion = snap.second2.toString();
+        break;
+      case '200-3':
+        myQuestion = snap.third2.toString();
         break;
       case '300-1':
         myQuestion = snap.first3.toString();
@@ -141,17 +147,26 @@ function reply_click(clicked_id)
       case '300-2':
         myQuestion = snap.second3.toString();
         break;
+      case '300-3':
+        myQuestion = snap.third3.toString();
+        break;
       case '400-1':
         myQuestion = snap.first4.toString();
         break;
       case '400-2':
         myQuestion = snap.second4.toString();
         break;
+      case '400-3':
+        myQuestion = snap.third4.toString();
+        break;
       case '500-1':
         myQuestion = snap.first5.toString();
         break;
       case '500-2':
         myQuestion = snap.second5.toString();
+        break;
+      case '500-3':
+        myQuestion = snap.third5.toString();
         break;
     };
     document.getElementById("question").innerHTML=myQuestion;
